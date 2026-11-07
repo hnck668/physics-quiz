@@ -3,55 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>物理错题练习</title>
+<title>物理错题练习集</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <h2>九年级物理专项练习</h2>
-  <div id="quizBox"></div>
-  <button id="submitBtn">提交答卷</button>
-  <div id="resultBox"></div>
+  <h2>九年级物理错题练习集</h2>
+  <ul class="date-list">
+              <li><a href='quiz.html?date=2026-11-7'>2026-11-7 错题练习</a></li>
+  </ul>
 </div>
-<script>
-let questions = [];
-fetch("questions.json")
-.then(res=>res.json())
-.then(data=>{
-  questions=data;
-  renderQuiz();
-})
-function renderQuiz(){
-  const box=document.getElementById("quizBox");
-  box.innerHTML="";
-  questions.forEach((q,idx)=>{
-    let html=`<div class="q-item"><div class="q-title">${idx+1}. ${q.question}</div>`
-    q.options.forEach((opt,i)=>{
-      html+=`<label class="opt"><input type="${q.type==='multi'?'checkbox':'radio'}" name="q${idx}" value="${String.fromCharCode(65+i)}"> ${String.fromCharCode(65+i)}. ${opt}</label>`
-    })
-    html+=`<div class="ans-hint" id="hint${idx}" style="display:none"></div></div>`
-    box.innerHTML+=html;
-  })
-}
-document.getElementById("submitBtn").onclick=()=>{
-  let score=0,total=questions.length;
-  questions.forEach((q,idx)=>{
-    const inputs=document.querySelectorAll(`input[name="q${idx}"]:checked`);
-    let userAns=Array.from(inputs).map(i=>i.value).sort().join("");
-    let rightAns=q.answer.split("").sort().join("");
-    const hint=document.getElementById(`hint${idx}`);
-    if(userAns===rightAns){
-      score++;
-      hint.innerHTML=`✅ 正确<br>解析：${q.desc}`;
-      hint.style.color="#228b22";
-    }else{
-      hint.innerHTML=`❌ 错误，标准答案：${q.answer}<br>解析：${q.desc}`;
-      hint.style.color="#dc2626";
-    }
-    hint.style.display="block";
-  })
-  document.getElementById("resultBox").innerHTML=`<h3>得分：${score}/${total}</h3>`
-}
-</script>
 </body>
 </html>
