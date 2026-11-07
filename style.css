@@ -1,0 +1,8 @@
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui}
+.container{max-width:720px;margin:20px auto;padding:16px}
+.q-item{border:1px solid #eee;border-radius:10px;padding:14px;margin:12px 0}
+.q-title{font-weight:bold;margin-bottom:10px;line-height:1.6}
+.opt{display:block;margin:8px 0;cursor:pointer}
+.ans-hint{margin-top:10px;padding:8px;border-radius:6px;background:#f8f8f8}
+#submitBtn{width:100%;padding:12px;background:#2563eb;color:white;border:none;border-radius:8px;font-size:16px;margin-top:10px}
+#resultBox{margin-top:16px;text-align:center;font-size:18px}
