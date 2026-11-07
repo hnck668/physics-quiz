@@ -94,6 +94,184 @@
     "options": ["√5-1", "3-√5", "1", "1.5"],
     "answer": "A",
     "desc": "该图为黄金三角形，AD=BD=BC，△BCD∽△ABC，AD/AB=(√5-1)/2，故AD=√5-1。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "We can see many ___ (butterfly) flying in the garden in spring.",
+    "answer": "butterflies",
+    "desc": "butterfly是可数名词，many后接复数形式；辅音字母+y结尾，变y为i加es，即butterflies。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "There are some ___ (sheep) eating grass on the small hill.",
+    "answer": "sheep",
+    "desc": "sheep单复数同形，some修饰时仍用sheep，不需要变化。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "The factory has over 300 ___ (work) in the workshop.",
+    "answer": "workers",
+    "desc": "work变为名词worker（工人），300后接复数形式workers。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "___ (read) English aloud every morning helps improve your pronunciation.",
+    "answer": "Reading",
+    "desc": "动词作句子主语需用动名词形式，read变为Reading，句首首字母大写。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "___ (play) table tennis is good for our health.",
+    "answer": "Playing",
+    "desc": "动词作主语用动名词，play变为Playing，句首首字母大写。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "___ (eat) too much junk food is bad for your body.",
+    "answer": "Eating",
+    "desc": "动词作主语用动名词，eat变为Eating，句首首字母大写。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "The little boy is ___ (thirst) for knowledge and always asks questions.",
+    "answer": "thirsty",
+    "desc": "be动词后接形容词作表语，thirst变为thirsty；be thirsty for 意为“渴望”。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "We need to find an ___ (effect) way to solve the problem.",
+    "answer": "effective",
+    "desc": "修饰名词way用形容词，effect变为effective（有效的）。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "The story is very ___ (interest) and all of us like it.",
+    "answer": "interesting",
+    "desc": "修饰事物用interesting，意为“有趣的”，在句中作表语。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "Don't put off ___ (do) your homework till tomorrow.",
+    "answer": "doing",
+    "desc": "put off后接动名词，意为“推迟做某事”，do变为doing。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "My mom always reminds me ___ (bring) my umbrella when it rains.",
+    "answer": "to bring",
+    "desc": "remind sb to do sth是固定搭配，意为“提醒某人做某事”。"
+  },
+  {
+    "subject": "英语",
+    "type": "fill",
+    "question": "My sister enjoys ___ (draw) pictures in her free time.",
+    "answer": "drawing",
+    "desc": "enjoy后接动名词，意为“喜欢做某事”，draw变为drawing。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "公交车前后门各有一个开关，按下任意一个都能让车内电铃响起，下列符合要求的电路是",
+    "options": ["两个开关串联后接电铃", "两个开关并联后接电铃", "前门开关与电铃串联后与后门开关并联", "后门开关与电铃串联后与前门开关并联"],
+    "answer": "B",
+    "desc": "按下任意开关都能响铃，说明两个开关独立工作、互不影响，因此两个开关并联，共同控制电铃。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "教室里的四盏日光灯由一个开关控制，同时亮同时灭，它们之间的连接方式是",
+    "options": ["一定是串联", "一定是并联", "可能串联可能并联", "无法判断"],
+    "answer": "B",
+    "desc": "家庭电路中用电器都是并联的，且其中一盏灯损坏不影响其他灯工作，开关在干路控制所有灯。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "楼道声控灯只有天黑且有声音时才亮，声控开关和光控开关的连接方式是",
+    "options": ["串联", "并联", "可能串联可能并联", "声控与灯并联"],
+    "answer": "A",
+    "desc": "两个条件同时满足灯才亮，说明两个开关相互影响，因此串联后共同控制灯泡。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "四冲程汽油机中，将内能转化为机械能的冲程是",
+    "options": ["吸气冲程", "压缩冲程", "做功冲程", "排气冲程"],
+    "answer": "C",
+    "desc": "做功冲程中燃气膨胀推动活塞做功，将内能转化为机械能。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "关于热机的效率，下列说法正确的是",
+    "options": ["热机效率越高，做功越快", "热机效率越高，做的有用功越多", "热机效率越高，燃料利用率越高", "热机效率可以达到100%"],
+    "answer": "C",
+    "desc": "热机效率是有用功与燃料完全燃烧放出热量的比值，效率越高说明燃料利用率越高；效率与功率无关，且热机效率一定小于100%。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "压缩冲程中，气缸内气体内能升高，这是通过哪种方式改变内能的",
+    "options": ["热传递", "做功", "热传递和做功", "无法确定"],
+    "answer": "B",
+    "desc": "压缩冲程活塞对气体做功，机械能转化为内能，是通过做功的方式增加内能。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "关于温度、热量和内能，下列说法正确的是",
+    "options": ["物体温度越高，含有的热量越多", "物体内能增加，一定吸收了热量", "物体吸收热量，温度一定升高", "物体温度升高，内能一定增加"],
+    "answer": "D",
+    "desc": "热量是过程量，不能说“含有热量”；内能增加可能是做功也可能是热传递；晶体熔化吸热温度不变；温度升高分子热运动加剧，内能一定增加。"
+  },
+  {
+    "subject": "物理",
+    "type": "single",
+    "question": "用水做汽车发动机的冷却液，是因为水的",
+    "options": ["密度大", "比热容大", "热值大", "沸点高"],
+    "answer": "B",
+    "desc": "水的比热容大，相同质量升高相同温度能吸收更多热量，冷却效果好，因此用作冷却液。"
+  },
+  {
+    "subject": "物理",
+    "type": "multi",
+    "question": "用相同加热器加热质量相同的水和煤油，下列说法正确的是",
+    "options": ["加热相同时间，水吸收的热量更多", "加热相同时间，煤油升温更快", "升高相同温度，水吸收的热量更多", "升高相同温度，两者吸收热量相同"],
+    "answer": "BC",
+    "desc": "相同加热器相同时间放出热量相同，因此两种液体吸收热量相同；煤油比热容小，升温更快；升高相同温度，水的比热容大，吸收热量更多。"
+  },
+  {
+    "subject": "物理",
+    "type": "multi",
+    "question": "关于串并联电路，下列说法正确的是",
+    "options": ["串联电路中电流处处相等", "并联电路中各支路电压相等", "串联电路总电阻等于各电阻之和", "并联电路总电阻等于各电阻倒数之和"],
+    "answer": "ABC",
+    "desc": "串联电路电流处处相等，总电阻等于各电阻之和；并联电路各支路电压相等，总电阻的倒数等于各电阻倒数之和，D表述错误。"
+  },
+  {
+    "subject": "物理",
+    "type": "fill",
+    "question": "“今天天气很热”中的“热”指的是___；“摩擦生热”中的“热”指的是___。（选填“温度”“热量”或“内能”）",
+    "answer": "温度；内能",
+    "desc": "天气热指温度高；摩擦生热是通过做功增加物体的内能，指的是内能。"
+  },
+  {
+    "subject": "物理",
+    "type": "fill",
+    "question": "电动车钥匙插入锁孔旋转就能通电，钥匙的作用相当于电路中的___；给电动车充电时，蓄电池相当于电路中的___。",
+    "answer": "开关；用电器",
+    "desc": "钥匙控制电路通断，相当于开关；充电时蓄电池消耗电能，相当于用电器。"
   }
 ]
 
