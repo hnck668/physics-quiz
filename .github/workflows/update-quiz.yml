@@ -17,39 +17,46 @@ jobs:
           ${{ github.event.issue.body }}
           EOF
 
-      - name: 更新首页日期列表
+      - name: 生成首页（含日期列表）
         run: |
-          cat > index.html << 'HTMLEND'
+          cat > index.html << 'HTMLHEAD'
           <!DOCTYPE html>
           <html lang="zh-CN">
           <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>物理错题练习集</title>
+          <title>陈佳怡九年级错题练习</title>
           <link rel="stylesheet" href="style.css">
           </head>
           <body>
-          <div class="container">
-            <h2>九年级物理错题练习集</h2>
-            <ul class="date-list">
-          HTMLEND
+          <div class="container home">
+            <div class="home-header">
+              <h1>陈佳怡九年级错题练习</h1>
+              <p class="subtitle">按日期归档 · 随时复盘复习</p>
+            </div>
+            <div class="date-list">
+          HTMLHEAD
 
           for file in $(ls questions-*.json 2>/dev/null | sort -r); do
             d=$(echo $file | sed 's/questions-//;s/.json//')
-            echo "              <li><a href='quiz.html?date=$d'>$d 错题练习</a></li>" >> index.html
+            echo "              <a class='date-card' href='quiz.html?date=$d'>
+                <div class='date-main'>$d</div>
+                <div class='date-desc'>错题练习 →</div>
+              </a>" >> index.html
           done
 
-          cat >> index.html << 'HTMLEND'
-            </ul>
+          cat >> index.html << 'HTMLFOOT'
+            </div>
           </div>
           </body>
           </html>
-          HTMLEND
+          HTMLFOOT
 
       - name: 提交更新
         run: |
           git config user.name "AutoBot"
           git config user.email "bot@example.com"
           git add .
-          git commit -m "新增当日错题练习"
+          git commit -m "更新首页与当日题库"
           git push
+
