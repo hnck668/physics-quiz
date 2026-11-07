@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>物理错题练习</title>
+<title>陈佳怡九年级错题练习</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
-  <div class="header">
-    <h2>九年级物理错题练习</h2>
+  <div class="quiz-header">
+    <h2>陈佳怡九年级错题练习</h2>
     <p class="date-info" id="dateInfo"></p>
   </div>
-  <div id="quizBox"></div>
-  <button id="submitBtn">提交答卷</button>
-  <div id="resultBox"></div>
+  <div class="quiz-body" id="quizBox"></div>
 </div>
 <script>
 const params = new URLSearchParams(window.location.search);
@@ -33,39 +31,78 @@ function renderQuiz(){
   const box = document.getElementById('quizBox');
   box.innerHTML = '';
   questions.forEach((q, idx) => {
-    let html = `<div class="q-item"><div class="q-title">${idx+1}. ${q.question}</div>`;
-    q.options.forEach((opt, i) => {
-      const type = q.type === 'multi' ? 'checkbox' : 'radio';
-      const val = String.fromCharCode(65+i);
-      html += `<label class="opt"><input type="${type}" name="q${idx}" value="${val}"> ${val}. ${opt}</label>`;
-    });
-    html += `<div class="ans-hint" id="hint${idx}" style="display:none"></div></div>`;
-    box.innerHTML += html;
+    const item = document.createElement('div');
+    item.className = 'q-item';
+    
+    // 题目标题 + 科目标签
+    let title = `<div class="q-title"><span class="subject-tag">${q.subject}</span>${idx+1}. ${q.question}</div>`;
+    item.innerHTML = title;
+
+    if(q.type === 'single'){
+      // 选择题
+      q.options.forEach((opt, i) => {
+        const val = String.fromCharCode(65+i);
+        const label = document.createElement('label');
+        label.className = 'opt';
+        label.innerHTML = `<input type="radio" name="q${idx}" value="${val}"> ${val}. ${opt}`;
+        label.querySelector('input').onchange = function(){
+          showAnswer(idx, val);
+        };
+        item.appendChild(label);
+      });
+    } else if(q.type === 'fill'){
+      // 填空题
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'fill-input';
+      input.placeholder = '请输入答案';
+      input.onblur = function(){
+        showAnswer(idx, this.value.trim());
+      };
+      input.onkeydown = function(e){
+        if(e.key === 'Enter'){
+          showAnswer(idx, this.value.trim());
+        }
+      };
+      item.appendChild(input);
+    }
+
+    // 答案解析区域
+    const hint = document.createElement('div');
+    hint.className = 'ans-hint';
+    hint.id = `hint${idx}`;
+    hint.style.display = 'none';
+    item.appendChild(hint);
+
+    box.appendChild(item);
   });
 }
 
-document.getElementById('submitBtn').onclick = function(){
-  let score = 0;
-  const total = questions.length;
-  questions.forEach((q, idx) => {
-    const inputs = document.querySelectorAll(`input[name="q${idx}"]:checked`);
-    let userAns = '';
-    inputs.forEach(i => userAns += i.value);
-    userAns = userAns.split('').sort().join('');
-    const rightAns = q.answer.split('').sort().join('');
-    const hint = document.getElementById(`hint${idx}`);
-    if(userAns === rightAns){
-      score++;
-      hint.innerHTML = `✅ 正确<br>解析：${q.desc}`;
-      hint.style.color = "#228b22";
-    }else{
-      hint.innerHTML = `❌ 错误，标准答案：${q.answer}<br>解析：${q.desc}`;
-      hint.style.color = "#dc2626";
-    }
-    hint.style.display = "block";
-  });
-  document.getElementById('resultBox').innerHTML = `<h3>得分：${score}/${total}</h3>`;
+function showAnswer(idx, userAns){
+  const q = questions[idx];
+  const hint = document.getElementById(`hint${idx}`);
+  const rightAns = q.answer;
+  let isRight = false;
+
+  if(q.type === 'single'){
+    isRight = userAns.toUpperCase() === rightAns.toUpperCase();
+  } else if(q.type === 'fill'){
+    // 填空题忽略空格、大小写
+    isRight = userAns.replace(/\s/g,'') === rightAns.replace(/\s/g,'');
+  }
+
+  if(isRight){
+    hint.innerHTML = `✅ 回答正确<br>标准答案：${rightAns}<br>解析：${q.desc}`;
+    hint.style.background = '#f0fdf4';
+    hint.style.color = '#166534';
+  } else {
+    hint.innerHTML = `❌ 回答错误<br>标准答案：${rightAns}<br>解析：${q.desc}`;
+    hint.style.background = '#fef2f2';
+    hint.style.color = '#991b1b';
+  }
+  hint.style.display = 'block';
 }
 </script>
 </body>
 </html>
+
