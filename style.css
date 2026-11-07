@@ -2,130 +2,180 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 body {
-  background: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px 15px;
+  background: linear-gradient(135deg, #f0f4ff 0%, #f7f9fc 100%);
+  color: #2c3e50;
+  min-height: 100vh;
+  padding: 20px 16px;
 }
 
 .container {
   max-width: 720px;
   margin: 0 auto;
-  background: #fff;
-  padding: 24px;
+}
+
+/* 首页样式 */
+.home-header {
+  text-align: center;
+  padding: 32px 0 24px;
+}
+
+.home-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.date-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.date-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #eee;
+.date-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.1);
 }
 
-.header h2 {
-  font-size: 22px;
+.date-main {
+  font-size: 17px;
   font-weight: 600;
-  color: #222;
+  color: #1e3a8a;
+}
+
+.date-desc {
+  font-size: 14px;
+  color: #3b82f6;
+}
+
+/* 答题页样式 */
+.quiz-header {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 0;
+}
+
+.quiz-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
 }
 
 .date-info {
-  color: #666;
+  color: #64748b;
   font-size: 14px;
   margin-top: 6px;
+}
+
+.quiz-body {
+  background: #ffffff;
+  padding: 20px 24px 24px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
 .q-item {
   margin-bottom: 20px;
   padding: 16px;
-  background: #fafbfc;
-  border-radius: 8px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.q-item:last-child {
+  margin-bottom: 0;
 }
 
 .q-title {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: #1e293b;
 }
 
 .opt {
   display: block;
-  padding: 8px 12px;
+  padding: 9px 12px;
   margin-bottom: 6px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: background 0.2s;
+  font-size: 15px;
 }
 
 .opt:hover {
-  background: #eef2f7;
+  background: #e0e7ff;
 }
 
 .opt input {
-  margin-right: 8px;
+  margin-right: 10px;
   vertical-align: middle;
+  accent-color: #3b82f6;
 }
 
 .ans-hint {
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 6px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
   font-size: 14px;
-  background: #f0f9ff;
+  line-height: 1.6;
+  background: #eff6ff;
+  color: #1e40af;
 }
 
 #submitBtn {
   width: 100%;
-  padding: 12px;
-  background: #2563eb;
+  padding: 14px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s;
+  margin-top: 20px;
+  transition: all 0.2s;
 }
 
 #submitBtn:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-1px);
 }
 
 #resultBox {
   margin-top: 20px;
   text-align: center;
+  padding: 16px;
+  background: #f0fdf4;
+  border-radius: 10px;
 }
 
 #resultBox h3 {
   font-size: 18px;
-  color: #222;
-}
-
-.date-list {
-  list-style: none;
-  padding: 0;
-}
-
-.date-list li {
-  margin-bottom: 10px;
-}
-
-.date-list a {
-  display: block;
-  padding: 14px 16px;
-  background: #f8fafc;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #2563eb;
-  font-size: 16px;
-  transition: background 0.2s;
-}
-
-.date-list a:hover {
-  background: #eff6ff;
+  color: #166534;
+  font-weight: 600;
 }
