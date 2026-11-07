@@ -179,3 +179,28 @@ body {
   color: #166534;
   font-weight: 600;
 }
+.subject-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #e0ecff;
+  color: #1e40af;
+  font-size: 13px;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-weight: 500;
+  vertical-align: 2px;
+}
+
+.fill-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0d7e3;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fill-input:focus {
+  border-color: #3b82f6;
+}
