@@ -5,95 +5,22 @@ on:
 permissions:
   contents: write
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: 提取日期并保存题库
+      - name: 保存当日题库
         run: |
           DATE="${{ github.event.issue.title }}"
-          echo "DATE=$DATE" >> $GITHUB_ENV
           cat > questions-$DATE.json << 'EOF'
           ${{ github.event.issue.body }}
           EOF
 
-      - name: 生成当日答题页面
+      - name: 更新首页日期列表
         run: |
-          UPDATE_TIME=$(date +"%H:%M")
-          cat > quiz-$DATE.html << HTMLEOF
+          cat > index.html << 'HTMLEND'
           <!DOCTYPE html>
-          <html lang="zh-CN">
-          <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>物理错题练习 - $DATE</title>
-          <link rel="stylesheet" href="style.css">
-          </head>
-          <body>
-          <div class="container">
-            <div class="header">
-              <h2>九年级物理错题练习</h2>
-              <p class="date-info">练习日期：$DATE | 更新时间：$UPDATE_TIME</p>
-            </div>
-            <div id="quizBox"></div>
-            <button id="submitBtn">提交答卷</button>
-            <div id="resultBox"></div>
-          </div>
-          <script>
-          let questions = [];
-          fetch("questions-$DATE.json")
-          .then(function(res){return res.json()})
-          .then(function(data){
-            questions=data;
-            renderQuiz();
-          })
-          function renderQuiz(){
-            var box=document.getElementById("quizBox");
-            box.innerHTML="";
-            for(var idx=0;idx<questions.length;idx++){
-              var q=questions[idx];
-              var html='<div class="q-item"><div class="q-title">'+(idx+1)+'. '+q.question+'</div>';
-              for(var i=0;i<q.options.length;i++){
-                var optType = q.type==='multi' ? 'checkbox' : 'radio';
-                var optVal = String.fromCharCode(65+i);
-                html+='<label class="opt"><input type="'+optType+'" name="q'+idx+'" value="'+optVal+'"> '+optVal+'. '+q.options[i]+'</label>';
-              }
-              html+='<div class="ans-hint" id="hint'+idx+'" style="display:none"></div></div>';
-              box.innerHTML+=html;
-            }
-          }
-          document.getElementById("submitBtn").onclick=function(){
-            var score=0,total=questions.length;
-            for(var idx=0;idx<questions.length;idx++){
-              var inputs=document.querySelectorAll('input[name="q'+idx+'"]:checked');
-              var userAns="";
-              for(var j=0;j<inputs.length;j++){
-                userAns+=inputs[j].value;
-              }
-              userAns=userAns.split('').sort().join('');
-              var rightAns=questions[idx].answer.split('').sort().join('');
-              var hint=document.getElementById('hint'+idx);
-              if(userAns===rightAns){
-                score++;
-                hint.innerHTML='✅ 正确<br>解析：'+questions[idx].desc;
-                hint.style.color="#228b22";
-              }else{
-                hint.innerHTML='❌ 错误，标准答案：'+questions[idx].answer+'<br>解析：'+questions[idx].desc;
-                hint.style.color="#dc2626";
-              }
-              hint.style.display="block";
-            }
-            document.getElementById("resultBox").innerHTML='<h3>得分：'+score+'/'+total+'</h3>';
-          }
-          </script>
-          </body>
-          </html>
-          HTMLEOF
-
-      - name: 生成首页索引
-        run: |
-          echo '<!DOCTYPE html>
           <html lang="zh-CN">
           <head>
           <meta charset="UTF-8">
@@ -104,22 +31,25 @@ jobs:
           <body>
           <div class="container">
             <h2>九年级物理错题练习集</h2>
-            <ul class="date-list">' > index.html
-          
-          for file in $(ls quiz-*.html 2>/dev/null | sort -r); do
-            date=$(echo $file | sed 's/quiz-//;s/.html//')
-            echo "<li><a href='$file'>$date 错题练习</a></li>" >> index.html
+            <ul class="date-list">
+          HTMLEND
+
+          for file in $(ls questions-*.json 2>/dev/null | sort -r); do
+            d=$(echo $file | sed 's/questions-//;s/.json//')
+            echo "              <li><a href='quiz.html?date=$d'>$d 错题练习</a></li>" >> index.html
           done
-          
-          echo '</ul>
+
+          cat >> index.html << 'HTMLEND'
+            </ul>
           </div>
           </body>
-          </html>' >> index.html
+          </html>
+          HTMLEND
 
-      - name: 提交并更新
+      - name: 提交更新
         run: |
           git config user.name "AutoBot"
           git config user.email "bot@example.com"
           git add .
-          git commit -m "新增 $DATE 错题练习"
+          git commit -m "新增当日错题练习"
           git push
