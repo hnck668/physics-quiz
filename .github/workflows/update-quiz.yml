@@ -1,0 +1,21 @@
+name: 自动更新题库
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cat > questions.json << 'EOF'
+          ${{ github.event.issue.body }}
+          EOF
+      - run: |
+          git config user.name "AutoBot"
+          git config user.email "bot@example.com"
+          git add questions.json
+          git commit -m "auto update" || echo "no change"
+          git push
