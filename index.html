@@ -3,15 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>物理错题练习集</title>
+<title>陈佳怡九年级错题练习</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-  <h2>九年级物理错题练习集</h2>
-  <ul class="date-list">
-              <li><a href='quiz.html?date=2026-11-7'>2026-11-7 错题练习</a></li>
-  </ul>
+<div class="container home">
+  <div class="home-header">
+    <h1>陈佳怡九年级错题练习</h1>
+    <p class="subtitle">按日期归档 · 随时复盘复习</p>
+  </div>
+  <div class="date-list">
+  </div>
 </div>
+<script>
+fetch('./')
+  .then(() => {
+    const list = document.querySelector('.date-list');
+    const files = [];
+    for(let i=0; i<localStorage.length; i++){
+      const key = localStorage.key(i);
+      if(key.startsWith('questions-')){
+        files.push(key);
+      }
+    }
+    files.sort().reverse().forEach(file => {
+      const date = file.replace('questions-','').replace('.json','');
+      const item = document.createElement('a');
+      item.className = 'date-card';
+      item.href = `quiz.html?date=${date}`;
+      item.innerHTML = `
+        <div class="date-main">${date}</div>
+        <div class="date-desc">错题练习 →</div>
+      `;
+      list.appendChild(item);
+    });
+  });
+</script>
 </body>
 </html>
