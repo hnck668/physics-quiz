@@ -1,5 +1,6 @@
 [
   {
+    "subject": "数学",
     "type": "single",
     "question": "已知点C是线段AB的黄金分割点，且AC>BC，若AB=2，则AC的长为（）",
     "options": ["√5-1", "3-√5", "√5+1", "(√5-1)/2"],
@@ -7,6 +8,7 @@
     "desc": "黄金分割中，长线段与整条线段的比为(√5-1)/2，因此AC=AB×(√5-1)/2=√5-1。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "点C、D是线段AB的两个黄金分割点，若AB=10，则CD的长为（）",
     "options": ["5√5-10", "10√5-20", "15-5√5", "20-10√5"],
@@ -14,6 +16,7 @@
     "desc": "AC=BD=(√5-1)/2·AB=5(√5-1)，由AC+BD=AB+CD，得CD=2×5(√5-1)-10=10√5-20。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "已知点B是线段AC的黄金分割点，且AB>BC，若BC=1，则AB的长为（）",
     "options": ["(√5+1)/2", "(√5-1)/2", "√5+1", "√5-1"],
@@ -21,6 +24,7 @@
     "desc": "黄金分割中，长段与短段的比为(√5+1)/2，因此AB=BC×(√5+1)/2=(√5+1)/2。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "平行四边形ABCD中，对角线AC的垂直平分线交AD于E，交BC于F，连接CE，若AB=3，BC=5，则△CDE的周长为（）",
     "options": ["8", "10", "11", "13"],
@@ -28,6 +32,7 @@
     "desc": "EF垂直平分AC，故AE=CE。△CDE周长=CD+DE+CE=CD+AD=AB+BC=8。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "平行四边形ABCD中，E是AB中点，DE交AC于F，则AF:FC等于（）",
     "options": ["1:1", "1:2", "2:3", "1:3"],
@@ -35,6 +40,7 @@
     "desc": "AB∥CD，△AEF∽△CDF，相似比AE:CD=1:2，故AF:FC=1:2。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "下列条件中，不能判定四边形是菱形的是（）",
     "options": ["四边都相等的四边形", "对角线互相垂直的平行四边形", "对角线相等的平行四边形", "邻边相等的平行四边形"],
@@ -42,6 +48,7 @@
     "desc": "对角线相等的平行四边形是矩形，不能判定为菱形。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "矩形ABCD中，AB=2，BC=3，P在BC上，AP⊥PQ，PQ交CD于Q，若BP=2，则CQ的长为（）",
     "options": ["1", "2/3", "1/2", "1/3"],
@@ -49,6 +56,7 @@
     "desc": "由一线三垂直得△ABP∽△PCQ，AB/PC=BP/CQ，PC=BC-BP=1，代入得CQ=1。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "矩形ABCD中，AB=4，BC=6，P在BC延长线上，AP⊥PQ交CD延长线于Q，若BP=8，则CQ的长为（）",
     "options": ["2", "3", "4", "5"],
@@ -56,6 +64,7 @@
     "desc": "PC=BP-BC=2，△ABP∽△PCQ，AB/PC=BP/CQ，代入得CQ=4。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "正方形ABCD边长为4，P在BC边上，AP⊥PE，PE交CD于E，若BP=1，则CE的长为（）",
     "options": ["3/4", "1", "4/3", "2"],
@@ -63,6 +72,7 @@
     "desc": "△ABP∽△PCE，AB/PC=BP/CE，PC=3，代入得CE=3/4。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "△ABC中，AB=6，AC=4，D是AB边上一点，AD=2，在AC上取一点E，使△ADE与△ABC相似，则AE的长为（）",
     "options": ["3", "4/3", "3或4/3", "无法确定"],
@@ -70,6 +80,7 @@
     "desc": "分两种对应：△ADE∽△ABC得AE=4/3；△AED∽△ABC得AE=3。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "Rt△ABC中，∠C=90°，AC=6，BC=8，点D在BC上，且△ACD与△ABC相似，则CD的长为（）",
     "options": ["4.5", "3.5", "4.5或3.5", "不能确定"],
@@ -77,6 +88,7 @@
     "desc": "∠C为公共角，△ACD∽△BCA，由AC/BC=CD/AC得CD=AC²/BC=36/8=4.5。"
   },
   {
+    "subject": "数学",
     "type": "single",
     "question": "△ABC中，∠A=36°，AB=AC，BD平分∠ABC交AC于D，若AB=2，则AD的长为（）",
     "options": ["√5-1", "3-√5", "1", "1.5"],
