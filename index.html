@@ -3,25 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>陈佳怡九年级错题练习</title>
-<link rel="stylesheet" href="style.css">
+<title>陈佳怡九年级错题练习 - 首页</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
+body{background:#f5f7fb;padding:20px}
+.card{background:#fff;border-radius:14px;padding:22px;margin-bottom:16px;box-shadow:0 2px 8px #00000012}
+h1{font-size:24px;color:#222;margin-bottom:16px}
+a{display:block;padding:14px;margin:10px 0;background:#e8f4ff;border-radius:10px;color:#2078c9;text-decoration:none;font-size:16px}
+a:active{background:#d7eaff}
+</style>
 </head>
 <body>
-<div class="container home">
-  <div class="home-header">
-    <h1>陈佳怡九年级错题练习</h1>
-    <p class="subtitle">按日期归档 · 随时复盘复习</p>
-  </div>
-  <div class="date-list">
-              <a class='date-card' href='quiz.html?date=2026-11-08'>
-      <div class='date-main'>2026-11-08</div>
-      <div class='date-desc'>错题练习 →</div>
-    </a>
-              <a class='date-card' href='quiz.html?date=2026-11-07'>
-      <div class='date-main'>2026-11-07</div>
-      <div class='date-desc'>错题练习 →</div>
-    </a>
-  </div>
+<div class="card">
+<h1>📖 错题练习汇总</h1>
+<div id="list"></div>
 </div>
+<script>
+// 自动获取站点根路径，解决子仓库404
+function getBasePath(){
+    const p = window.location.pathname;
+    const last = p.lastIndexOf('/');
+    return p.substring(0,last)+"/";
+}
+const base = getBasePath();
+// 这里是工作流自动写入的日期列表，后续action会自动更新
+const dateList = ["2026-11-07","2026-11-08"];
+const wrap = document.getElementById("list");
+dateList.forEach(d=>{
+    wrap.innerHTML += `<a href="${base}quiz.html?date=${d}">📅 ${d} 错题练习</a>`
+})
+</script>
 </body>
 </html>
