@@ -121,7 +121,8 @@ function renderQuiz(data){
         }
     })
 }
-
+// 固定写死你的仓库基础路径
+const BASE_URL = "/physics-quiz/";
 const urlParams = new URLSearchParams(window.location.search);
 const date = urlParams.get('date');
 const container = document.getElementById("question-container");
@@ -129,7 +130,7 @@ const container = document.getElementById("question-container");
 if (!date) {
   container.innerHTML = '<div style="color:red;padding:20px;">缺少日期参数</div>';
 } else {
-  fetch(`./${date}.json`)
+  fetch(`${BASE_URL}${date}.json`)
     .then(res => {
       if (!res.ok) {
         throw new Error(`请求失败，状态码：${res.status}`);
@@ -147,7 +148,7 @@ if (!date) {
     .catch(err => {
       container.innerHTML = `<div style="color:red;padding:20px;font-size:16px;">
       ❌ 加载错题失败：<br>${err.message}<br>
-      尝试读取文件地址：./${date}.json
+      尝试读取文件地址：${BASE_URL}${date}.json
       </div>`;
     });
 }
