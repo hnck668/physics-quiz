@@ -19,18 +19,11 @@ a:active{background:#d7eaff}
 <div id="list"></div>
 </div>
 <script>
-// 自动获取站点根路径，解决子仓库404
-function getBasePath(){
-    const p = window.location.pathname;
-    const last = p.lastIndexOf('/');
-    return p.substring(0,last)+"/";
-}
-const base = getBasePath();
-// 这里是工作流自动写入的日期列表，后续action会自动更新
+const SITE_ROOT = "https://hnck668.github.io/physics-quiz/";
 const dateList = ["2026-11-07","2026-11-08"];
 const wrap = document.getElementById("list");
 dateList.forEach(d=>{
-    wrap.innerHTML += `<a href="${base}quiz.html?date=${d}">📅 ${d} 错题练习</a>`
+    wrap.innerHTML += `<a href="${SITE_ROOT}quiz.html?date=${d}">📅 ${d} 错题练习</a>`
 })
 </script>
 </body>
