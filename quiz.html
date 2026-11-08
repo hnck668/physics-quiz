@@ -95,13 +95,17 @@ function renderQuiz(data){
     data.questions.forEach((q,idx)=>{
         html += `
         <div class="question-item">
-            <span class="subject-tag">${data.subject}</span>
+            <span class="subject-tag">${q.subject}</span>
             <div class="q-title">${idx+1}. ${q.stem}</div>
         `;
-        q.options.forEach((opt,oi)=>{
-            const label = String.fromCharCode(65+oi);
-            html += `<div class="option" data-q="${idx}" data-ans="${label}">${label}. ${opt}</div>`
-        })
+        if(q.type === "choice"){
+            q.options.forEach((opt,oi)=>{
+                const label = String.fromCharCode(65+oi);
+                html += `<div class="option" data-q="${idx}" data-ans="${label}">${label}. ${opt}</div>`
+            })
+        }else if(q.type === "fill"){
+            html += `<div style="padding:10px;border:1px #ccc dashed;border-radius:8px;">填空作答：________</div>`
+        }
         html += `<div class="analysis" id="an${idx}">✅ 正确答案：${q.answer}<br>解析：${q.analysis}</div></div>`
     })
     wrap.innerHTML = html;
@@ -121,8 +125,7 @@ function renderQuiz(data){
         }
     })
 }
-// 固定写死你的仓库基础路径
-const BASE_URL = "/physics-quiz/";
+const SITE_ROOT = "https://hnck668.github.io/physics-quiz/";
 const urlParams = new URLSearchParams(window.location.search);
 const date = urlParams.get('date');
 const container = document.getElementById("question-container");
@@ -130,7 +133,7 @@ const container = document.getElementById("question-container");
 if (!date) {
   container.innerHTML = '<div style="color:red;padding:20px;">缺少日期参数</div>';
 } else {
-  fetch(`${BASE_URL}${date}.json`)
+  fetch(`${SITE_ROOT}questions-${date}.json`)
     .then(res => {
       if (!res.ok) {
         throw new Error(`请求失败，状态码：${res.status}`);
@@ -148,7 +151,7 @@ if (!date) {
     .catch(err => {
       container.innerHTML = `<div style="color:red;padding:20px;font-size:16px;">
       ❌ 加载错题失败：<br>${err.message}<br>
-      尝试读取文件地址：${BASE_URL}${date}.json
+      完整请求地址：${SITE_ROOT}questions-${date}.json
       </div>`;
     });
 }
