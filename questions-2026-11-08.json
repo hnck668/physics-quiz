@@ -56,7 +56,7 @@
     {"id":51,"stem":"The old building ____ next year.","options":["will rebuild","will be rebuilt","rebuilds","is rebuilt"],"answer":"B","analysis":"next year将来时被动：will be done"},
     {"id":52,"stem":"Do you know ____ book this is?","options":["who","whom","whose","what"],"answer":"C","analysis":"whose谁的，作定语"},
     {"id":53,"stem":"—Must I finish the task today? —No, you ____.","options":["mustn’t","can’t","needn’t","shouldn’t"],"answer":"C","analysis":"Must提问否定回答needn’t"},
-    {"id":54,"stem":"My mother asked me ____ too much time playing games.","options":["not spend","not to spend","don’t spend","didn’t spend"],"answer":"B","analysis":["ask sb. not to do 要求某人不要做某事"],"answer":"B","analysis":"ask sb. not to do sth."},
+    {"id":54,"stem":"My mother asked me ____ too much time playing games.","options":["not spend","not to spend","don’t spend","didn’t spend"],"answer":"B","analysis":"ask sb. not to do sth."},
     {"id":55,"stem":"She will call you as soon as she ____ Beijing.","options":["reaches","reach","will reach","reached"],"answer":"A","analysis":"as soon as 主将从现，she三单"},
     {"id":56,"stem":"We have no classes ____ Sunday.","options":["in","on","at","for"],"answer":"B","analysis":"星期前面用on"},
     {"id":57,"stem":"There is ____ orange on the table.","options":["a","an","the","/"],"answer":"B","analysis":"orange元音音素开头"},
